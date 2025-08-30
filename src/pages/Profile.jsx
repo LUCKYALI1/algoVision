@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../hooks/useAuth';
 import { Navigate, useLocation } from 'react-router-dom';
 import { db } from '../firebase';
@@ -19,31 +19,32 @@ const Profile = () => {
   const [loading, setLoading] = useState(true);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
 
-  useEffect(() => {
-    const fetchInitialData = async () => {
-      if (!user) return;
-      setLoading(true);
-      try {
-        // Fetch user profile
-        const userRef = doc(db, 'users', user.uid);
-        const docSnap = await getDoc(userRef);
-        if (docSnap.exists()) {
-          setProfileData(docSnap.data());
-        }
-
-        // Fetch user's posts
-        const postsQuery = query(collection(db, 'posts'), where('authorId', '==', user.uid), orderBy('createdAt', 'desc'));
-        const postsSnapshot = await getDocs(postsQuery);
-        setPosts(postsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
-
-      } catch (error) {
-        console.error("Error fetching initial data:", error);
-      } finally {
-        setLoading(false);
+  const fetchInitialData = useCallback(async () => {
+    if (!user) return;
+    setLoading(true);
+    try {
+      // Fetch user profile
+      const userRef = doc(db, 'users', user.uid);
+      const docSnap = await getDoc(userRef);
+      if (docSnap.exists()) {
+        setProfileData(docSnap.data());
       }
-    };
-    fetchInitialData();
+
+      // Fetch user's posts
+      const postsQuery = query(collection(db, 'posts'), where('authorId', '==', user.uid), orderBy('createdAt', 'desc'));
+      const postsSnapshot = await getDocs(postsQuery);
+      setPosts(postsSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+
+    } catch (error) {
+      console.error("Error fetching initial data:", error);
+    } finally {
+      setLoading(false);
+    }
   }, [user]);
+
+  useEffect(() => {
+    fetchInitialData();
+  }, [user, fetchInitialData]);
 
   const fetchReviews = async () => {
     if (!user || reviews.length > 0) return; // Don't refetch if already loaded
@@ -114,7 +115,7 @@ const Profile = () => {
         if (error.code === 'auth/requires-recent-login') {
           alert("To delete your account, please log in again recently and then try again.");
         } else {
-          alert("Failed to delete account. Please try again.");
+          alert(`Failed to delete account: ${error.message}. Please try again.`);
         }
       }
     }
