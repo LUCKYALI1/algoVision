@@ -111,7 +111,11 @@ const Profile = () => {
         window.location.href = "/";
       } catch (error) {
         console.error("Error deleting account: ", error);
-        alert("Failed to delete account. Please try again.");
+        if (error.code === 'auth/requires-recent-login') {
+          alert("To delete your account, please log in again recently and then try again.");
+        } else {
+          alert("Failed to delete account. Please try again.");
+        }
       }
     }
   };
@@ -216,7 +220,7 @@ const Profile = () => {
               <h2 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-6">Edit Profile</h2>
               <EditProfileForm onSave={() => {
                 setIsEditModalOpen(false);
-                fetchData();
+                fetchInitialData();
               }} />
               <button onClick={() => setIsEditModalOpen(false)} className="mt-4 w-full py-2 bg-gray-300 dark:bg-gray-600 text-black dark:text-white rounded-lg">Cancel</button>
             </div>
