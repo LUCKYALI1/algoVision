@@ -124,7 +124,7 @@ const Login = () => {
             placeholder="Email Address"
             onChange={handleChange}
             disabled={loading}
-            className={`w-full pl-10 pr-4 py-3 bg-white text-black dark:bg-black dark:text-white border ${errors.email ? 'border-red-500' : 'border-gray-600'} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors disabled:opacity-50`}
+            className={`w-full pl-10 pr-4 py-3 bg-white text-black dark:bg-white dark:text-gray-100 border ${errors.email ? 'border-red-500' : 'border-gray-600'} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors disabled:opacity-50`}
           />
           {errors.email && <p className="mt-1 text-xs text-red-400">{errors.email}</p>}
         </div>
@@ -137,7 +137,7 @@ const Login = () => {
             placeholder="Password"
             onChange={handleChange}
             disabled={loading}
-            className={`w-full pl-10 pr-4 py-3 bg-white text-black dark:bg-black dark:text-white border ${errors.password ? 'border-red-500' : 'border-gray-600'} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors disabled:opacity-50`}
+            className={`w-full pl-10 pr-4 py-3 bg-white text-black dark:bg-white dark:text-gray-100  ${errors.password ? 'border-red-500' : 'border-gray-600'} rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors disabled:opacity-50`}
           />
           {errors.password && <p className="mt-1 text-xs text-red-400">{errors.password}</p>}
         </div>
