@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: smooth dark mode transitions */
+html {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+@font-face {
+    font-family: font_heading;
+    src: url(../public/fonts/Rubik-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: font_paragraph;
+    src: url(../public/fonts/NataSans-VariableFont_wght.ttf);
+}
+@font-face {
+    font-family: font_coding;
+    src: url(../public/fonts/RobotoMono-VariableFont_wght.ttf);
+}
+
+h1 , h2 , h3 , h4 , h5 , h6,alt {
+    font-family: font_heading;
+}
+p , span , a , li , button , input , textarea{
+    font-family: font_paragraph;
+}
+.coding{
+    font-family: font_coding;
+}
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
