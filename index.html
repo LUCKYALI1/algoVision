@@ -1,13 +1,95 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
+    <!--
+      Basic Meta Tags
+      - charset: Specifies the character encoding for the document.
+      - viewport: Controls the layout on mobile browsers.
+      - theme-color: Sets the color of the browser UI (e.g., address bar).
+    -->
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React</title>
-  </head>
-  <body>
-    <div id="root"></div>
+    <meta name="theme-color" content="#6366F1"> <!-- A modern, friendly purple/indigo -->
+
+    <!--
+      Core SEO Meta Tags
+      - title: The main title of the page, shown in the browser tab and search results. (Crucial for SEO)
+      - description: A concise summary of the page's content. Shown in search results. (Crucial for SEO)
+      - keywords: A list of relevant keywords for your page. (Less impact now, but still good practice).
+    -->
+    <title>Master Data Structures & Algorithms | CodeBlocks</title>
+    <meta name="description" content="Dive deep into Data Structures and Algorithms with clear explanations, visual diagrams, and ready-to-use code examples. Master the building blocks of code today." />
+    <meta name="keywords" content="Data Structures, Algorithms, Coding, Programming, Computer Science, Learn to Code, DSA, Sorting, Searching" />
+    <meta name="author" content="Lucky Ali">
+
+    <!--
+      Canonical URL
+      - Tells search engines the "preferred" version of a URL to prevent duplicate content issues.
+    -->
+    <link rel="canonical" href="https://algo-vision-te11.vercel.app" />
+
+    <!--
+      Favicon Links
+      - Provides icons for browser tabs, bookmarks, and mobile home screens.
+      - Generate these from a site like https://realfavicongenerator.net/
+    -->
+    <link rel="icon" href="/public/favicon/favicon-32x32.png" sizes="any">
+    <link rel="apple-touch-icon" href="/public/favicon/apple-touch-icon.png">
+
+    <!--
+      Open Graph (OG) Tags for Social Media (Facebook, LinkedIn, Pinterest, etc.)
+      - Controls how your page looks when shared on social media.
+    -->
+    <meta property="og:title" content="Master Data Structures & Algorithms | CodeBlocks" />
+    <meta property="og:description" content="Go from theory to practice with clear explanations and visual examples." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://your-website-url.com/" />
+    <meta property="og:image" content="https://your-website-url.com/og-image.png" /> <!-- Use an absolute URL for your share image (e.g., 1200x630px) -->
+    <meta property="og:site_name" content="CodeBlocks" />
+
+    <!--
+      Twitter Card Tags
+      - Optimizes how your page looks when shared on Twitter.
+    -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Master Data Structures & Algorithms | CodeBlocks" />
+    <meta name="twitter:description" content="Go from theory to practice with clear explanations and visual examples." />
+    <meta name="twitter:image" content="https://your-website-url.com/twitter-image.png" /> <!-- Use an absolute URL for your share image -->
+    <meta name="twitter:creator" content="@YourTwitterHandle">
+
+    <!--
+      Structured Data (Schema.org) for Rich Snippets
+      - Helps search engines understand your content better, which can lead to rich results.
+    -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "algovision",
+      "url": "https://algo-vision-te11.vercel.app/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://https://algo-vision-te11.vercel.app//search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Accessibility: Skip to Content Link -->
+    <!-- This is where your React application will be mounted. -->
+    <div id="root">
+        <!--
+          It's good practice to include a simple, non-JS version of your main heading
+          for users with JavaScript disabled and for some SEO crawlers.
+        -->
+        <noscript>
+          <h1>Master the Building Blocks of Code.</h1>
+          <p>This website requires JavaScript to function. Please enable it to explore our content on Data Structures and Algorithms.</p>
+        </noscript>
+    </div>
+
+    <!-- The script that loads your React app. -->
     <script type="module" src="/src/main.jsx"></script>
-  </body>
+</body>
 </html>
