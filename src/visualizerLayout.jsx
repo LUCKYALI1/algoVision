@@ -2,7 +2,7 @@ import React from 'react'
 import AlgorithmHub from './pages/visualizerhub'
 import Home from './pages/home'
 import Reviews from './pages/Reviews'
-import Footer from './pages/footer'
+import Footer from './pages/Footer'
 
 function visualizerLayout() {
   return (
